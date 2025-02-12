@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/YOUR-FONT-AWESOME-KIT.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f8f8f8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+            position: relative;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 45px;
+            color: #1f8b4c;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+
+        }
+
+        .input-box {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 2px solid #aaa;
+            border-radius: 5px;
+            margin: 10px 0;
+            background: #fff;
+        }
+
+        .input-box i {
+            margin-right: 10px;
+            color: #666;
+        }
+
+        .input-box input {
+            border: none;
+            outline: none;
+            background: none;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .forgot-password {
+            text-align: right;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .forgot-password a {
+            text-decoration: none;
+            color: #666;
+        }
+
+        .login-btn {
+            background: #3b003b;
+            color: white;
+            padding: 12px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background: #580058;
+        }
+
+        .separator {
+            margin: 15px 0;
+            font-size: 16px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border: 2px solid #aaa;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            background: white;
+            transition: transform 0.2s ease;
+        }
+
+        .social-btn i {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .football-icon {
+            position: absolute;
+            font-size: 30px;
+            color: #000;
+            opacity: 0.5;
+        }
+
+        .football-1 { top: 10%; left: 5%; }
+        .football-2 { top: 30%; right: 10%; }
+        .football-3 { bottom: 20%; left: 30%; }
+        .football-4 { top: 50%; right: 5%; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="email" id="email" placeholder="Email">
+            </div>
+            <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="mot de passe">
+            </div>
+            <div class="forgot-password">
+                <a href="#">Forget password?</a>
+            </div>
+           <a href="index.html"> <button type="submit" class="login-btn">LOGIN</button></a>
+            <p class="separator">Or</p>
+            <div class="social-login">
+                <div class="social-btn">
+                    <i class="fab fa-google"></i> google
+                </div>
+                <div class="social-btn">
+                    <i class="fab fa-facebook"></i> facebook
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="football-icon football-1">⚽</div>
+    <div class="football-icon football-2">⚽</div>
+    <div class="football-icon football-4">⚽</div>
+</body>
+</html>
+
+
+    <script>
+      
+
+function animateFootballs() {
+    let footballs = document.querySelectorAll(".football-icon");
+    footballs.forEach(ball => {
+        let randomX = Math.random() * 40 - 20; // Random X movement
+        let randomY = Math.random() * 40 - 20; // Random Y movement
+
+        // Update the ball's position with smooth transitions
+        ball.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    });
+}
+
+// Add smooth transitions with JavaScript
+document.querySelectorAll(".football-icon").forEach(ball => {
+    ball.style.transition = "transform 0.8s ease-in-out"; // Smooth movement
+});
+
+// Move footballs every second
+setInterval(animateFootballs, 1000);
+
+</script>
+</body>
+</html>

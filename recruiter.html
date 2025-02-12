@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DZ Talents</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        
+/* Header Section */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #fff;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #37003C; /* Changes text color */
+    font-size: 16px;
+    font-weight: bold;
+    position: relative; /* Needed for the underline effect */
+    transition: color 0.3s ease-in-out; /* Smooth color transition */
+    cursor: pointer; /* Adds pointer cursor */
+    font-family: 'Inter';
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Increased gap for better spacing */
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spacing between the profile icon and text */
+}
+
+.profile-container span {
+    font-family: 'system-ui';
+    font-weight: 700;
+    font-size: 20px; /* Adjust font size for better visibility */
+    text-align: center; /* Center aligns the text vertically */
+}
+
+.icon {
+    width: 45px; /* Increased icon size */
+    height: 45px; /* Increased icon size */
+    cursor: pointer;
+}
+
+/* Underline Effect on Hover */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjusts underline position */
+    width: 0%;
+    height: 2px;
+    background-color: #37003C; /* Underline color */
+    transition: width 0.3s ease-in-out; /* Smooth underline animation */
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    color: #22022D; /* Slightly darker shade for hover effect */
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* Expands the underline */
+}
+.academy-gallery {
+    overflow: hidden;
+    position: relative;
+    background-color: #f8f8f8;
+    padding: 20px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.academy-track {
+    display: flex;
+    gap: 20px;
+    animation: scroll 20s linear infinite; /* Smooth infinite scrolling */
+}
+
+.academy {
+    flex: 0 0 auto;
+    width: 100px;
+    height: 100px;
+}
+
+.academy img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.logo {
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  .logo img {
+    height: 95px; /* Adjust height */
+    width: auto; /* Maintain aspect ratio */
+    display: block;
+  }
+  
+  /* Optional: Add hover effect for the logo */
+  .logo:hover img {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.search-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.search-bar {
+    width: 30%;
+    padding: 10px 1px 10px 30px;
+    border: 1px solid #339E5E;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.icon1 {
+    position: absolute;
+    top: 50%;
+    padding-left: 8px;
+    transform: translateY(-50%);
+    width: 3%;
+    cursor: pointer;
+}
+
+h2 {
+    font-family:'Poppins';
+}
+  
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spacing between the profile icon and text */
+}
+
+.profile-container span {
+    font-family: 'system-ui';
+    font-weight: 700;
+    font-size: 20px; /* Adjust font size for better visibility */
+    text-align: center; /* Center aligns the text vertically */
+}
+
+.icon {
+    width: 45px; /* Increased icon size */
+    height: 45px; /* Increased icon size */
+    cursor: pointer;
+}
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters select, 
+.filters input, 
+.filters button {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.filters button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filters button:hover {
+    background-color: #218838;
+}
+
+.table-section {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.player-table {
+    width: 60%;
+    border-collapse: collapse;
+}
+
+.player-table th, 
+.player-table td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.player-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.player-row img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.bio-section {
+    width: 35%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f8f8f8;
+    text-align: center; /* Centers all content */
+    padding: 20px;
+}
+
+.bio-section h2 {
+    color: red;
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-family: 'Poppins';
+}
+
+.bio-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-family: 'Poppins';
+
+}
+
+.bio-section p {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left;
+    font-family: 'Poppins';
+
+}
+
+
+
+.profile-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px; /* Space between image and name */
+}
+
+.profile-pic img {
+    width: 120px; /* Adjust size */
+    height: 120px;
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover;
+    border: 3px solid #ccc; /* Optional border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds depth */
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/assets/DZ_Talents__1_-removebg-preview.png" alt="DZ Talents Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact us</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <img class="icon" src="images/assets/notification.png" alt="Notification Icon">
+            <div class="profile-container">
+                <img class="icon" src="images/assets/boy.png" alt="Profile Icon">
+                <span>Profile</span>
+            </div>
+        </div>
+    </header>
+  
+    <main>
+        <h2>Players that might interest you!!</h2>
+        <div class="search-container">
+            <div class="search-wrapper">
+                <img class="icon1" src="images/assets/search.png" alt="Search Icon">
+                <input class="search-bar" type="text" placeholder="Search">
+            </div>
+        </div>  
+        <div class="filters">
+            <select id="stateFilter">
+                <option value="all">All States</option>
+                <option value="active">Active</option>
+                <option value="free-agent">Free Agent</option>
+            </select>
+            <input type="number" id="enduranceFilter" placeholder="Min Endurance">
+            <input type="number" id="ageFilter" placeholder="Max Age">
+            <button onclick="filterPlayers()">Filter</button>
+        </div>
+
+        <div class="table-section">
+            <table class="player-table">
+                <tr>
+                    <th>Informations</th>
+                    <th>Endurance</th>
+                    <th>Age</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="player-row">
+                            <a href="athlete.html"><img src="images/assets/Ronaldo.jpg" alt="Player"></a>
+                            <div>
+                                <strong>Lorem ipsum.</strong>
+                                <p>dolor sit amet consectetur. Tortor tempor augue orci vulputate.</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>80</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="player-row">
+                            <img src="images/assets/mahrez.jpg" alt="Player">
+                            <div>
+                                <strong>Lorem ipsum.</strong>
+                                <p>dolor sit amet consectetur. Tortor tempor augue orci vulputate.</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>90</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="player-row">
+                            <img src="images/assets/aitnouri.png" alt="Player">
+                            <div>
+                                <strong>Lorem ipsum.</strong>
+                                <p>dolor sit amet consectetur. Tortor tempor augue orci vulputate.</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>77</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="player-row">
+                            <img src="images/assets/aouar.png" alt="Player">
+                            <div>
+                                <strong>Lorem ipsum.</strong>
+                                <p>dolor sit amet consectetur. Tortor tempor augue orci vulputate.</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>69</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="player-row">
+                            <img src="images/assets/marselle.png" alt="Player">
+                            <div>
+                                <strong>Lorem ipsum.</strong>
+                                <p>dolor sit amet consectetur. Tortor tempor augue orci vulputate.</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>50</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="player-row">
+                            <img src="images/assets/image_2025-02-07_16-19-20.png" alt="Player">
+                            <div>
+                                <strong>Lorem ipsum.</strong>
+                                <p>dolor sit amet consectetur. Tortor tempor augue orci vulputate.</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>75</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="player-row">
+                            <img src="images/assets/mahrez.jpg" alt="Player">
+                            <div>
+                                <strong>Lorem ipsum.</strong>
+                                <p>dolor sit amet consectetur. Tortor tempor augue orci vulputate.</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>68</td>
+                    <td>19</td>
+                </tr>
+                
+            </table>
+
+            <div class="bio-section">
+                <div class="profile-pic">
+                    <img src="images/assets/arsen.jpg" alt="Recruiter Profile Picture">
+                </div>
+            
+                <h2>Arsène Wenger</h2>
+            
+                <h3>BIO :</h3><br>
+                <p>
+                <strong>Arsène Charles Ernest Wenger</strong> is a French former football manager and player who is currently serving as FIFA's Chief of Global Football Development. He was the manager of Arsenal from 1996 to 2018, where he was the longest-serving and most successful in the club's history.
+                    <br><br><br>
+                <strong>Born:</strong> October 22, 1949 (age 75 years), Strasbourg, France
+                    <br> <br><strong>Teams coached:</strong> Arsenal F.C. (Association football manager, 1996–2018) · See more
+                    <br><br><strong>Spouse:</strong> Annie Brosterhous (m. 2010–2015)
+                    <br><br><strong>Children: </strong>Léa Wenger
+                    <br><br><strong>Position:</strong> Defender
+                    <br><br><strong>Dates joined:</strong> 1978 (Strasbourg), 1975 (AS Pierrots Vauban Strasbourg), 1973 (FC Mulhouse), 1969 (Association Still-Mutzig)
+                </p>
+            </div>
+            
+        </div>
+    </main>
+    
+    <script>
+        function filterPlayers() {
+            const stateFilter = document.getElementById('stateFilter').value;
+            const enduranceFilter = document.getElementById('enduranceFilter').value;
+            const ageFilter = document.getElementById('ageFilter').value;
+            const players = document.querySelectorAll('.player-row');
+
+            players.forEach(player => {
+                const endurance = parseInt(player.closest("tr").children[1].innerText);
+                const age = parseInt(player.closest("tr").children[2].innerText);
+                
+                let show = true;
+
+                if (enduranceFilter && endurance < enduranceFilter) {
+                    show = false;
+                }
+                if (ageFilter && age > ageFilter) {
+                    show = false;
+                }
+                
+                player.closest("tr").style.display = show ? 'table-row' : 'none';
+            });
+        }
+    </script>
+<section class="footer-section-container">
+    <section class="footer">
+        <div class="footer-section">
+            <h3>Service-Telephone</h3>
+            <p><strong>0666.66.66.66 / 0777.77.77.77</strong></p>
+            <p>dimanche-samedi:</p>
+            <p>08:00 - 12:00</p>
+            <p>13:00 - 17:00</p>
+        </div>
+
+        <div class="divider"></div> <!-- Vertical Line -->
+
+        <div class="footer-section">
+            <h3>Information</h3>
+            <a href="#">Newsletter</a>
+            <a href="#">Newsletter</a>
+            <a href="#">Newsletter</a>
+            <a href="#">Newsletter</a>
+        </div>
+
+        <div class="divider"></div> <!-- Vertical Line -->
+
+        <div class="footer-section">
+            <h3>Our Company</h3>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+
+            <div class="social-icons">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-vimeo"></i>
+            </div>
+        </div>    
+    </section>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Rafik-dev. All rights reserved.</p>
+    </div>    
+</section>
+
+</body>
+</html>

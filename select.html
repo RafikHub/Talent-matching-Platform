@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join as Athlete or Recruiter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">
+      <img src="images/assets/DZ_Talents__1_-removebg-preview.png" alt="Logo">
+    </a>
+  </header>
+  
+  <div class="container">
+    <h1>Join as an athlete or recruiter</h1>
+    <div class="options">
+      <div class="option" data-role="athlete">
+        <div class="icon"><img src="images/assets/icons8-find-user-male-90.png" alt=""></div>
+        <p>I'm an athlete, looking for an academy</p>
+      </div>
+      <div class="option" data-role="recruiter">
+        <div class="icon"><img src="images/assets/icons8-football-90.png" alt=""></div>
+        <p>I'm a recruiter, hiring for an athlete</p>
+      </div>
+    </div>
+    <button class="create-account" disabled>Create account</button>
+    <p class="login-text">Already have an account ? <a href="login.html">Log In</a></p>
+  </div>
+
+  <script>
+    let selectedRole = null;
+
+    document.querySelectorAll(".option").forEach(option => {
+      option.addEventListener("click", function() {
+        selectedRole = this.getAttribute("data-role");
+        
+        // Highlight selected option
+        document.querySelectorAll(".option").forEach(opt => opt.classList.remove("selected"));
+        this.classList.add("selected");
+
+        // Enable button
+        document.querySelector(".create-account").removeAttribute("disabled");
+      });
+    });
+
+    document.querySelector(".create-account").addEventListener("click", function() {
+      if (selectedRole) {
+        // Redirect to signup page with selected role in URL
+        window.location.href = `signup.html?role=${selectedRole}`;
+      }
+    });
+  </script>
+
+  <style>
+    .option.selected {
+      border: 2px solid blue;
+      background-color: lightblue;
+    }
+  </style>
+      <div id="footer-container"></div>
+
+</body>
+</html>

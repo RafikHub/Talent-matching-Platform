@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="athlete.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="footer.css">
+</head>
+
+<body>
+    <div class="profile-header">
+        <div class="logo">
+           <a href="index.html"> <img src="images/assets/DZ_Talents__1_-removebg-preview.png" alt="Logo"></a>
+        </div>
+        <div class="search-container">
+            <div class="search-wrapper">
+                <img class="icon1" src="images/assets/search.png" alt="Search Icon">
+                <input class="search-bar" type="text" placeholder="Search">
+            </div>
+        </div>        
+        <div class="header-icons">
+            <img class="icon" src="images/assets/notification.png" alt="Notification Icon">
+            <div class="profile-container">
+                <img class="icon" src="images/assets/boy.png" alt="Profile Icon">
+                <span>Profil</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-main">
+        <div class="profile-summary">
+            <div class="profile-summary-left">
+                <div class="profile-image">
+                    <img src="images/assets/Ronaldo.jpg" alt="Profile Image">
+                </div>
+                <div class="profile-info">
+                    <h1>Cristiano Ronaldo</h1>
+                    <p>19 ans</p>
+                    <p>Free agent</p>
+                </div>
+            </div>
+            <button class="edit-btn">Modifier</button>
+        </div>
+        
+
+        <div class="profile-content">
+            <div class="profile-details">
+                <div class="left-section">
+                    <div class="additional-info">
+                        <h2>Player Details</h2>
+                        <p><strong>Height:</strong> <span class="small-text"></span></p>
+                        <p><strong>Weight:</strong> <span class="small-text"></span></p>
+                        <p><strong>Dominant Foot:</strong> <span class="small-text"></span></p>
+                        <p><strong>Position:</strong> <span class="small-text"></span></p>
+                        <p><strong>Speed:</strong> <span class="small-text"></span></p>
+                        <p><strong>Endurance:</strong> <span class="small-text"></span></p>
+                        <p><strong>Accuracy:</strong> <span class="star"></span></p>
+                        <p><strong>Dribble:</strong> <span class="star"></span></p>
+                        <p><strong>Other Skills:</strong> <span class="small-text"></span></p>
+                    </div>
+                </div>
+                <div class="right-section">
+                    <div class="bio-section">
+                        <h2>BIO:</h2>
+                        <p>
+                            "I'm Cristiano Ronaldo, a fast, skilled, and hardworking player from Madeira. 
+                            Trained at Sporting CP, I’m ready to prove my talent on the field—free of charge. 
+                            Give me a chance, and I’ll give you results!"
+                        </p>
+                    </div>
+                    <div class="highlights-section">
+                        <h2>Highlights:</h2>
+                        <div class="highlight-carousel">
+                            <button class="carousel-btn left-btn">&lt;</button>
+                            <div class="highlight-images">
+                                <iframe class="carousel-image" src="https://www.youtube.com/embed/L8taGwfp2sU?si=gHDC76f27wovLhxU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <img class="carousel-image" src="images/assets/high1 (2).jpg" alt="Highlight 2">
+                                <img class="carousel-image" src="images/assets/high1 (3).jpg" alt="Highlight 3">
+                                <iframe class="carousel-image" src="https://www.youtube.com/embed/mxQOOMX4NQM?si=SJi7Cg3wB4ZHfJFa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <img class="carousel-image" src="images/assets/high1 (4).jpg" alt="Highlight 4">
+                                <img class="carousel-image" src="images/assets/high1 (5).jpg" alt="Highlight 5">
+                            </div>
+                            <button class="carousel-btn right-btn">&gt;</button>
+                        </div>
+                        <!-- Image Modal -->
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+
+                    </div>
+                    
+                    <div class="statistics-section">
+                        <h2>Statistics:</h2>
+                        <p><strong>Match plays:</strong> <span class="small-text">10</span></p>
+                        <p><strong>Goals scored:</strong> <span class="small-text">6</span></p>
+                        <p><strong>Awards:</strong> <span class="small-text">2</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        // Retrieve data from localStorage
+        const athleteData = JSON.parse(localStorage.getItem("athleteData"));
+        
+        // Populate fields if data exists
+        if (athleteData) {
+          document.querySelector(".profile-info h1").textContent = `${athleteData.firstName} ${athleteData.secondName}`;
+          document.querySelector(".profile-info p:nth-child(2)").textContent = `${athleteData.birthday} years old`; 
+          document.querySelector(".profile-info p:nth-child(3)").textContent = athleteData.professionalClub;
+        } else {
+          console.error("No athlete data found.");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeBtn = document.querySelector(".close");
+
+    // Select all highlight images
+    document.querySelectorAll(".carousel-image").forEach(image => {
+        image.addEventListener("click", function () {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+            closeBtn.style.display = "block"; // Show close button when modal opens
+        });
+    });
+
+    // Close the modal when clicking the close button
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+        closeBtn.style.display = "none"; // Hide close button when modal closes
+    });
+
+    // Close the modal when clicking outside the image
+    modal.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            closeBtn.style.display = "none"; // Hide close button when modal closes
+        }
+    });
+});
+
+        </script>
+<section class="footer-section-container">
+    <section class="footer">
+        <div class="footer-section">
+            <h3>Service-Telephone</h3>
+            <p><strong>0666.66.66.66 / 0777.77.77.77</strong></p>
+            <p>dimanche-samedi:</p>
+            <p>08:00 - 12:00</p>
+            <p>13:00 - 17:00</p>
+        </div>
+
+        <div class="divider"></div> <!-- Vertical Line -->
+
+        <div class="footer-section">
+            <h3>Information</h3>
+            <a href="#">Newsletter</a>
+            <a href="#">Newsletter</a>
+            <a href="#">Newsletter</a>
+            <a href="#">Newsletter</a>
+        </div>
+
+        <div class="divider"></div> <!-- Vertical Line -->
+
+        <div class="footer-section">
+            <h3>Our Company</h3>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+
+            <div class="social-icons">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-vimeo"></i>
+            </div>
+        </div>      
+    </section>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Rafik-dev. All rights reserved.</p>
+    </div>  
+</section>
+
+</body>
+
+</html>

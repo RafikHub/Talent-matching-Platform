@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="login-container">
+    <div class="form-section">
+      <h1 id="signup-title">Get Started Now</h1>
+      <form class="login-form">
+        <div class="input-group">
+          <input type="text" placeholder="First Name" required>
+          <input type="text" placeholder="Second Name" required>
+        </div>
+        <div class="input-group">
+          <input type="date" placeholder="Birthday" required>
+          <input type="tel" placeholder="Phone number" required>
+        </div>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Professional club" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm your password" required>
+        <button type="submit" class="sign-in-button">Sign in</button>
+        <div class="social-buttons">
+          <button type="button" class="google-sign-in">Sign in with <span>G</span></button>
+          <button type="button" class="alt-sign-in">Sign in with</button>
+        </div>
+      </form>
+    </div>
+    <div class="image-section">
+      <img src="images/assets/premium_photo-1661868926397-0083f0503c07.jpeg" alt="Athlete on field">
+    </div>
+  </div>
+
+  <script>
+    // Get role from URL
+    const params = new URLSearchParams(window.location.search);
+    const role = params.get("role");
+    
+    // Update page title based on role
+    if (role) {
+      document.getElementById("signup-title").innerText = `Sign Up as ${role.charAt(0).toUpperCase() + role.slice(1)}`;
+    }
+    
+    // Handle form submission
+    document.querySelector(".login-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission
+    
+      // Collect form data
+      const formData = {
+        firstName: document.querySelector('input[placeholder="First Name"]').value,
+        secondName: document.querySelector('input[placeholder="Second Name"]').value,
+        birthday: document.querySelector('input[placeholder="Birthday"]').value,
+        phoneNumber: document.querySelector('input[placeholder="Phone number"]').value,
+        email: document.querySelector('input[placeholder="Email"]').value,
+        professionalClub: document.querySelector('input[placeholder="Professional club"]').value,
+      };
+    
+      // Save data to localStorage
+      localStorage.setItem("athleteData", JSON.stringify(formData));
+    
+      // Redirect based on role
+      if (role === "athlete") {
+        window.location.href = "athlete.html";
+      } else if (role === "recruiter") {
+        window.location.href = "recruiter.html";
+      } else {
+        alert("Invalid user type!");
+      }
+    });
+    </script>
+        <div id="footer-container"></div>
+
+</body>
+</html>
+
