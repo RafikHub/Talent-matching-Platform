@@ -5,7 +5,7 @@ My role. Web developer
 
 Project description.
 
-Developed during a hackathon to enhance Algerian youth's experience, this platform connects aspiring footballers with recruiters:
+Developed with my team during a hackathon to enhance Algerian youth's experience, this platform connects aspiring footballers with recruiters:
 
 1. Athlete Interface: Create profiles, showcase skills, and upload videos.
 2. Recruiter Interface: Browse players, evaluate talent, and connect.
